@@ -1,4 +1,4 @@
-insert into mmo.countries ('name',	'alpha_2',	'alpha_3',	'country_code',	'region')
+insert into mmo.countries (name,	alpha_2,	alpha_3,	country_code,	region)
 values
 ('Afghanistan',	'AF',	'AFG',	4,	'Asia'),
 ('Åland Islands',	'AX',	'ALA',	248,	'Europe'),
@@ -27,7 +27,7 @@ values
 ('Bermuda',	'BM',	'BMU',	60,	'Americas'),
 ('Bhutan',	'BT',	'BTN',	64,	'Asia'),
 ('Bolivia (Plurinational State of)',	'BO',	'BOL',	68,	'Americas'),
-('Bonaire, Sint Eustatius and Saba',	'BQ'	'BES',	535,	'Americas'),
+('Bonaire, Sint Eustatius and Saba',	'BQ',	'BES',	535,	'Americas'),
 ('Bosnia and Herzegovina',	'BA',	'BIH',	70,	'Europe'),
 ('Botswana',	'BW',	'BWA',	72,	'Africa'),
 ('Bouvet Island',	'BV',	'BVT',	74,	'Americas'),
@@ -54,7 +54,7 @@ values
 ('Congo (Democratic Republic of the)',	'CD',	'COD',	180,	'Africa'),
 ('Cook Islands',	'CK',	'COK',	184,	'Oceania'),
 ('Costa Rica',	'CR',	'CRI',	188,	'Americas'),
-("Côte d'Ivoire",	'CI',	'CIV',	384,	'Africa'),
+('Côte d''''Ivoire',	'CI',	'CIV',	384,	'Africa'),
 ('Croatia',	'HR',	'HRV',	191,	'Europe'),
 ('Cuba',	'CU',	'CUB',	192,	'Americas'),
 ('Curaçao',	'CW',	'CUW',	531,	'Americas'),
@@ -77,7 +77,7 @@ values
 ('Fiji',	'FJ',	'FJI',	242,	'Oceania'),
 ('Finland',	'FI',	'FIN',	246,	'Europe'),
 ('France',	'FR',	'FRA',	250,	'Europe'),
-('French Guiana',	'GF',	'GUF',	254,	'Americas')
+('French Guiana',	'GF',	'GUF',	254,	'Americas'),
 ('French Polynesia',	'PF',	'PYF',	258,	'Oceania'),
 ('French Southern Territories',	'TF',	'ATF',	260,	'Africa'),
 ('Gabon',	'GA',	'GAB',	266,	'Africa'),
@@ -118,11 +118,11 @@ values
 ('Kazakhstan',	'KZ',	'KAZ',	398,	'Asia'),
 ('Kenya',	'KE',	'KEN',	404,	'Africa'),
 ('Kiribati',	'KI',	'KIR',	296,	'Oceania'),
-("Korea (Democratic People's Republic of)",	'KP',	'PRK',	408,	'Asia'),
+('Korea (Democratic People''''s Republic of)',	'KP',	'PRK',	408,	'Asia'),
 ('Korea (Republic of)',	'KR',	'KOR',	410,	'Asia'),
 ('Kuwait',	'KW',	'KWT',	414,	'Asia'),
 ('Kyrgyzstan',	'KG',	'KGZ',	417,	'Asia'),
-("Lao People's Democratic Republic",	'LA',	'LAO',	418,	'Asia'),
+('Lao People''''s Democratic Republic',	'LA',	'LAO',	418,	'Asia'),
 ('Latvia',	'LV',	'LVA',	428,	'Europe'),
 ('Lebanon',	'LB',	'LBN',	422,	'Asia'),
 ('Lesotho',	'LS',	'LSO',	426,	'Africa'),
@@ -248,4 +248,4 @@ values
 ('Western Sahara',	'EH',	'ESH',	732,	'Africa'),
 ('Yemen',	'YE',	'YEM',	887,	'Asia'),
 ('Zambia',	'ZM',	'ZMB',	894,	'Africa'),
-('Zimbabwe',	'ZW',	'ZWE',	716,	'Africa')
+('Zimbabwe',	'ZW',	'ZWE',	716,	'Africa');

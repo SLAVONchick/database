@@ -56,4 +56,6 @@ drop table mmo.server_types;
 
 drop table mmo.dificulties;
 
+--drop function mmo.damage_gained();
+
 drop schema mmo;
