@@ -20,7 +20,6 @@ create table mmo.servers (
   name    varchar(256) not null,
   type_id int          not null references mmo.server_types (id),
   max_loading smallint not null,
-  cur_loading smallint not null,
   country_id int not null references mmo.countries (id)
 );
 
