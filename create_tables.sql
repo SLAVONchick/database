@@ -65,6 +65,7 @@ create table mmo.skills(
   name varchar(128) not null,
   practical_stats smallint not null,
   skill_type int not null references mmo.skill_types(id),
+  min_level smallint not null,
   class_id int not null references mmo.classes(id),
   is_passive bit not null,
   self bit not null,
