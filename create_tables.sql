@@ -79,7 +79,7 @@ create table mmo.races(
   description text
 );
 
-create table mmo.races_classe_fractions(
+create table mmo.races_classes_fractions(
   class_id int not null references mmo.classes(id),
   fraction_id int not null references mmo.fractions(id),
   race_id int not null references mmo.races(id)
