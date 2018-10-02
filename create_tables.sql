@@ -64,24 +64,25 @@ create table mmo.roles_classes(
   class_id int not null references mmo.classes(id)
 );
 
+create table mmo.races(
+  id serial primary key,
+  name varchar(128) not null,
+  description text
+);
+
 create table mmo.skills(
   id serial primary key,
   name varchar(128) not null,
   practical_stats smallint not null,
   skill_type int references mmo.skill_types(id),
   min_level smallint not null,
-  class_id int not null references mmo.classes(id),
+  class_id int references mmo.classes(id),
+  race_id int references mmo.races(id),
   is_passive bit not null,
   self bit not null,
   for_enemy bit not null,
   is_stubbing bit not null,
   duration interval
-);
-
-create table mmo.races(
-  id serial primary key,
-  name varchar(128) not null,
-  description text
 );
 
 create table mmo.races_classes_fractions(
