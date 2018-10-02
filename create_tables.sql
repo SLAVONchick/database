@@ -74,6 +74,7 @@ create table mmo.skills(
   is_passive bit not null,
   self bit not null,
   for_enemy bit not null,
+  is_stubbing bit not null,
   duration interval
 );
 
