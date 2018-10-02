@@ -60,8 +60,8 @@ create table mmo.classes(
 );
 
 create table mmo.roles_classes(
-  role_id int references mmo.roles(id),
-  class_id int references mmo.classes(id)
+  role_id int not null references mmo.roles(id),
+  class_id int not null references mmo.classes(id)
 );
 
 create table mmo.skills(
@@ -109,6 +109,7 @@ create table mmo.equipment(
   description text,
   equipment_min_level smallint not null,
   level_type int not null references mmo.level_types(id),
+  skill_type int not null references mmo.skill_types(id),
   gainable_precentil real not null
 );
 
