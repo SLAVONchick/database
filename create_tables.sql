@@ -76,8 +76,6 @@ create table mmo.skills(
   practical_stats smallint not null,
   skill_type int references mmo.skill_types(id),
   min_level smallint not null,
-  class_id int references mmo.classes(id),
-  race_id int references mmo.races(id),
   is_passive bit not null,
   self bit not null,
   for_enemy bit not null,
