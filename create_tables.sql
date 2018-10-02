@@ -50,7 +50,6 @@ create table mmo.roles(
 create table mmo.classes(
   id serial primary key,
   name varchar(128) not null,
-  role_id int not null references mmo.roles(id),
   description text,
   strength smallint not null,
   intelligence smallint not null,
@@ -58,6 +57,11 @@ create table mmo.classes(
   agility smallint not null,
   luck smallint not null,
   health int not null
+);
+
+create table mmo.roles_classes(
+  role_id int references mmo.roles(id),
+  class_id int references mmo.classes(id)
 );
 
 create table mmo.skills(
