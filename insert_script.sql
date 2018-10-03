@@ -1,258 +1,180 @@
-create schema mmo;
+insert into mmo.server_types (name)
+values
+('PvP'),
+('PvE'),
+('RP');
+
+insert into mmo.servers (name, type_id, max_loading, country_id)
+values
+('Russian PvP #1', 1, 1000, (select id from mmo.countries where alpha_3 = 'RUS')),
+('Russian PvP #2', 1, 900, (select id from mmo.countries where alpha_3 = 'RUS')),
+('Russian PvP #3', 1, 800, (select id from mmo.countries where alpha_3 = 'RUS')),
+('Russian PvE #1', 2, 1000, (select id from mmo.countries where alpha_3 = 'RUS')),
+('Russian RP #1', 3, 1000, (select id from mmo.countries where alpha_3 = 'RUS')),
+('American PvP #1', 1, 1000, (select id from mmo.countries where alpha_3 = 'USA')),
+('American PvP #2', 1, 900, (select id from mmo.countries where alpha_3 = 'USA')),
+('American PvP #3', 1, 800, (select id from mmo.countries where alpha_3 = 'USA')),
+('American PvE #1', 2, 1000, (select id from mmo.countries where alpha_3 = 'USA')),
+('American RP #1', 3, 1000, (select id from mmo.countries where alpha_3 = 'USA'));
+
+insert into mmo.players (email, nickname, country_id, created_dt)
+values
+('slavonn1@gmail.com', 'SLAVONchick', (select id from mmo.countries where alpha_3 = 'RUS'), now()),
+('mramerican@icloud.com', 'Dr.DRE', (select id from mmo.countries where alpha_3 = 'USA'), now()),
+('slavik@gmail.com', 'viacheslavik', (select id from mmo.countries where alpha_3 = 'RUS'), now()),
+('gera@gmail.com', 'gera_in', (select id from mmo.countries where alpha_3 = 'RUS'), now()),
+('liza@gmail.com', 'lizon', (select id from mmo.countries where alpha_3 = 'RUS'), now()),
+('mariya@gmail.com', 'MaShUlYa', (select id from mmo.countries where alpha_3 = 'RUS'), now()),
+('lena@gmail.com', 'lenok', (select id from mmo.countries where alpha_3 = 'USA'), now()),
+('michael@gmail.com', 'Mr. Jackson', (select id from mmo.countries where alpha_3 = 'USA'), now()),
+('rihana@gmail.com', 'Rihanna', (select id from mmo.countries where alpha_3 = 'USA'), now()),
+('jayz@gmail.com', 'Method Man', (select id from mmo.countries where alpha_3 = 'USA'), now());
 
 
-create table mmo.server_types (
-  id   serial primary key,
-  name varchar(64) not null
-);
+insert into mmo.fractions (name, description)
+values
+('Adherents of Kenaira', 'Adherents believes that goddess Kenaira will come in our world and take what they think belongs to her - souls of livings. No one gave meaning to those religios fanatics, untill 27 years ago their leader has realized that it''s time for Kenaira to come.'),
+('Enlighteners', 'Theese are scientists, but what''s more important, they are last hope of this world. Since they are scientists, they shouldn''t belive in any god, but there eyes tell them that Kenaira is not a character from some tale, when they see what Adherents'' prays can do.. ');
 
-create table mmo.countries (
-  id           serial primary key,
-  name         varchar(256) unique,
-  alpha_2      varchar(2) not NULL,
-  alpha_3      varchar(3) not null,
-  country_code int        not null,
-  region       varchar(64)
-);
+insert into mmo.skill_types (name)
+values
+('Melee Attack'),
+('Remote Attack'),
+('Healing'),
+('Burning'),
+('Freezing'),
+('Poisoning'),
+('Mind Control'),
+('Damage absorbing');
 
-create table mmo.servers (
-  id      serial primary key,
-  name    varchar(256) not null,
-  type_id int          not null references mmo.server_types (id),
-  max_loading smallint not null,
-  country_id int not null references mmo.countries (id)
-);
+insert into mmo.roles (name)
+values
+('Tank'),
+('Fighter'),
+('Healer');
 
-create table mmo.players(
-  id bigserial PRIMARY KEY,
-  email varchar(128) not null,
-  nickname varchar(128) not null,
-  country_id int not null references mmo.countries(id),
-  created_dt timestamp not null
-);
-
-create table mmo.fractions(
-  id serial primary key,
-  name varchar(128) not null,
-  descripition text
-);
-
-create table mmo.skill_types(
-  id serial primary key,
-  name varchar(64) not null
-);
-
-create table mmo.roles(
-  id serial primary key,
-  name varchar(128) not null
-);
-
-create table mmo.classes(
-  id serial primary key,
-  name varchar(128) not null,
-  description text,
-  strength smallint not null,
-  intelligence smallint not null,
-  speed smallint not null,
-  agility smallint not null,
-  luck smallint not null,
-  health int not null
-);
-
-create table mmo.roles_classes(
-  role_id int not null references mmo.roles(id),
-  class_id int not null references mmo.classes(id)
-);
-
-create table mmo.races(
-  id serial primary key,
-  name varchar(128) not null,
-  description text
-);
-
-create table mmo.skills(
-  id serial primary key,
-  name varchar(128) not null,
-  practical_stats smallint not null,
-  skill_type int references mmo.skill_types(id),
-  class_id int references mmo.classes(id),
-  race_id int references mmo.races(id),
-  min_level smallint not null,
-  is_passive bit not null,
-  self bit not null,
-  for_enemy bit not null,
-  is_stubbing bit not null,
-  duration interval
-);
-
-create table mmo.races_classes_fractions(
-  class_id int not null references mmo.classes(id),
-  fraction_id int not null references mmo.fractions(id),
-  race_id int not null references mmo.races(id)
-);
-
-create table mmo.level_types(
-  id serial primary key,
-  name varchar(128) not null,
-  gained_xp_multiplier smallint not null
-);
-
-create table mmo.equipment_types(
-  id serial primary key,
-  name varchar(128) not null,
-  can_be_equipped bit not null
-);
-
-create table mmo.equipment(
-  id bigserial primary key,
-  equipment_type int not null references mmo.equipment_types(id),
-  practical_stats smallint not null,
-  description text,
-  equipment_min_level smallint not null,
-  level_type int not null references mmo.level_types(id),
-  skill_type int not null references mmo.skill_types(id),
-  gainable_precentil real not null
-);
-
-create table mmo.classes_equipment(
-  class_id int not null references mmo.classes(id),
-  equipment_id int not null references mmo.equipment(id),
-  is_equipped bit not null,
-  amount int not null
-);
-
-create table mmo.characters(
-  id bigserial primary key,
-  player_id bigint not null references mmo.players(id),
-  server_id int not null references mmo.servers(id),
-  fraction_id int not null references mmo.fractions(id),
-  race_id int not null references mmo.races(id),
-  class_id int not null references mmo.classes(id),
-  name varchar(256) not null,
-  strength smallint not null,
-  intelligence smallint not null,
-  speed smallint not null,
-  agility smallint not null,
-  luck smallint not null,
-  max_health int not null,
-  cur_health int not null,
-  xp_to_next_level bigint not null,
-  cur_xp bigint not null,
-  is_online bit not null,
-  created_dt timestamp not null
-);
-
-create table mmo.characters_equipment(
-  character_id bigint not null references mmo.characters(id),
-  equipment_id bigint not null references mmo.equipment(id),
-  is_equipped bit not null,
-  amount int not null
-);
-
-create table mmo.dificulties(
-  id serial primary key,
-  name varchar(128) not null,
-  min_level smallint not null
-);
-
-create table mmo.dungeons(
-  id serial primary key,
-  name varchar(256) not null,
-  description text,
-  is_raid bit not null,
-  level_type int not null references mmo.level_types(id),
-  match_duration interval
-);
-
-create table mmo.npcs(
-  id serial primary key,
-  name varchar(256) not null,
-  description text,
-  fraction_id int references mmo.fractions(id),
-  level smallint not null,
-  is_boss bit not null,
-  level_type int not null references mmo.level_types(id),
-  health bigint not null,
-  damage int not null
-);
-
-create table mmo.dungeons_bosses(
-  dungeon_id int not null references mmo.dungeons(id),
-  boss_id int not null references mmo.npcs(id),
-  oreder_num smallint not null
-);
-
-create table mmo.dungeons_roles(
-  dungeon_id int not null references mmo.dungeons(id),
-  role_id int not null references mmo.roles(id),
-  amount smallint not null
-);
-
-create table mmo.pve_groups(
-  id bigserial primary key,
-  name varchar(128) not null,
-  dungeon_id int not null references mmo.dungeons(id),
-  start_dt timestamp not null,
-  end_dt timestamp,
-  dificulty_id int not null references mmo.dificulties(id)
-);
-
-create table mmo.pve_groups_characters(
-  pve_group_id bigint not null references mmo.pve_groups(id),
-  character_id bigint not null references mmo.characters(id),
-  kills smallint not null,
-  deaths smallint not null,
-  damage_inflicted bigint not null,
-  damage_gained bigint not null,
-  bosses_killed smallint not null
-);
-
-create table mmo.pve_groups_bosses(
-  pve_group_id bigint not null references mmo.pve_groups(id),
-  boss_id int not null references mmo.npcs(id),
-  health bigint not null
-);
-
-create table mmo.pvp_maps(
-  id serial primary key,
-  name varchar(256) not null,
-  description text
-);
-
-create table mmo.pvp_modes(
-  id serial primary key,
-  name varchar(256) not null,
-  flags_to_win smallint,
-  groups_amount smallint not null,
-  players_in_groups smallint not null,
-  are_groups_binded_to_fractions bit not null,
-  match_duration interval not null,
-  kills_to_win smallint
-);
-
-create table mmo.pvp_matches(
-  id serial primary key,
-  name varchar(256) not null,
-  mode_id int not null references mmo.pvp_modes(id),
-  map_id int not null references mmo.pvp_maps(id),
-  start_dt timestamp not null,
-  end_dt timestamp
-);
-
-create table mmo.pvp_groups(
-  id bigserial primary key,
-  name varchar(128) not null,
-  match_id int not null references mmo.pvp_matches(id),
-  is_winner bit not null
-);
-
-create table mmo.pvp_groups_characters(
-  pvp_group_id bigint not null references mmo.pvp_groups(id),
-  character_id bigint not null references mmo.characters(id),
-  flags_captured smallint,
-  kills smallint not null,
-  deaths smallint not null
-);
-
-
-
+insert into mmo.classes (name, description, strength, intelligence, speed, agility, luck, health)
+values
+('Kenaira''s priest', 'Kenaira''s priest - main worshiper of Kenaira. Can do powerful things with the help of Kenaira''s will.', 9, 9, 8, 10, 11, 1500);
+('Doctor of Philosophy', 'This is a highly educated scientist, who had to learn war craft to defend his world.', 12, 7, 9, 9, 11, 1500),
+('Man of steel', 'Warrior that has great health to absorb damage', 10, 7, 8, 8, 10, 2000),
+('Cannon fodder', 'He goes to the battleright after the Man of steel to inflict more damage.', 14, 7, 10, 9, 8, 1000),
+('Carrier', 'It is important member of team, ''cause he can heal teammates.', 9, 14, 8, 8, 9, 1200),
+('Defender', 'Warrior that can abcorb damage and heal teammates.', 11, 12, 8, 9, 9, 1800);
+ 
+ insert into mmo.roles_classes(role_id, class_id)
+ values
+ (2, 1),
+ (3, 1),
+ (1, 2),
+ (2, 2),
+ (1, 3),
+ (2, 4),
+ (3, 5),
+ (1, 6),
+ (3, 6);
+ 
+ insert into mmo.races(name, description)
+ values
+ ('Humans', null),
+ ('Mechs', null),
+ ('Space Orcs', null),
+ ('Cannibals of Tarris', null),
+ ('Witchers', null),
+ ('Space Elves', null);
+ 
+ insert into mmo.races_classes_fractions(race_id, fraction_id, class_id)
+ values
+ (1, 2, 2),
+ (1, 2, 3),
+ (1, 2, 4),
+ (1, 2, 5),
+ (2, 1, 1),
+ (2, 1, 3),
+ (2, 1, 4),
+ (2, 1, 6),
+ (2, 2, 2),
+ (2, 2, 3),
+ (2, 2, 4),
+ (2, 2, 6),
+ (3, 1, 1),
+ (3, 1, 3),
+ (3, 1, 4),
+ (3, 1, 6),
+ (4, 1, 1),
+ (4, 1, 4),
+ (4, 1, 5),
+ (4, 1, 6),
+ (5, 1, 1),
+ (5, 1, 4),
+ (5, 1, 5),
+ (5, 1, 6),
+ (5, 2, 2),
+ (5, 2, 4),
+ (5, 2, 5),
+ (5, 2, 6),
+ (6, 2, 2),
+ (6, 2, 4),
+ (6, 2, 5),
+ (6, 2, 6);
+ 
+ insert into mmo.skills 
+ (name, practical_stats, skill_type, min_level, class_id, race_id, is_passive, self, for_enemy, is_stubbing, duration) 
+ values
+ ('Race specific skill', 200, 3, 1, null, 6, 0, 1, 1, 0, null),
+ ('Race specific skill', 200, 1, 1, null, 1, 0, 0, 1, 0, null),
+ ('Race specific skill', 200, 4, 1, null, 3, 0, 0, 1, 0, null),
+ ('Race specific skill', 200, 2, 1, null, 2, 0, 0, 1, 0, '5 seconds'),
+ ('Race specific skill', 200, 6, 1, null, 5, 0, 0, 1, 0, null),
+ ('Race specific skill', 0, 7, 1, null, 4, 0, 0, 1, 1, '5 seconds'),
+ ('Skill #1', 100, 7, 1, 1, null, 0, 0, 1, 0, '2 seconds'),
+ ('Skill #2', 200, 4, 1, 1, null, 0, 0, 1, 0, null),
+ ('Skill #1', 200, 4, 1, 2, null, 0, 0, 1, 0, null),
+ ('Skill #2', 200, 5, 1, 2, null, 0, 0, 1, 0, null),
+ ('Skill #1', 200, 8, 1, 3, null, 0, 0, 1, 0, null),
+ ('Skill #2', 200, 1, 1, 3, null, 0, 0, 1, 0, null),
+ ('Skill #1', 200, 2, 1, 4, null, 0, 0, 1, 0, null),
+ ('Skill #2', 200, 6, 1, 4, null, 0, 0, 1, 0, null),
+ ('Skill #1', 200, 2, 1, 5, null, 0, 0, 1, 0, null),
+ ('Skill #2', 200, 3, 1, 5, null, 0, 1, 0, 0, '10 seconds'),
+ ('Skill #1', 200, 8, 1, 6, null, 0, 0, 1, 0, null),
+ ('Skill #2', 200, 3, 1, 6, null, 0, 0, 1, 0, '5 seconds');
+ 
+ insert into mmo.level_types (name, gained_xp_multiplier)
+ values
+ ('Common', 1),
+ ('Special', 2),
+ ('Rare', 3),
+ ('Legendary', 4),
+ ('Epic', 5),
+ ('Exotic', 6);
+  
+ insert into mmo.equipment_types (name, can_be_equipped)
+ values
+ ('One-handed weapon', 1),
+ ('Two-handed weapon', 1),
+ ('Helmet', 1),
+ ('Torso', 1),
+ ('Gloves', 1),
+ ('Pants', 1),
+ ('Boots', 1),
+ ('Chemistry', 0),
+ ('Bag', 0);
+ 
+ insert into mmo.characters (
+  player_id, server_id, fraction_id, race_id, class_id, name, strength, intelligence, speed,
+  agility, luck, max_health, cur_health, xp_to_next_level, cur_xp, is_online, created_dt
+ )
+ values
+ (
+  1, server_id, fraction_id, race_id, class_id, name, strength, intelligence, speed,
+  agility, luck, max_health, cur_health, xp_to_next_level, cur_xp, is_online, created_dt
+ ),
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
