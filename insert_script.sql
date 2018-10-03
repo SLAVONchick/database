@@ -121,24 +121,24 @@ values
  insert into mmo.skills 
  (name, practical_stats, skill_type, min_level, class_id, race_id, is_passive, self, for_enemy, is_stubbing, duration) 
  values
- ('Race specific skill', 200, 3, 1, null, 6, 0, 1, 1, 0, null),
- ('Race specific skill', 200, 1, 1, null, 1, 0, 0, 1, 0, null),
- ('Race specific skill', 200, 4, 1, null, 3, 0, 0, 1, 0, null),
- ('Race specific skill', 200, 2, 1, null, 2, 0, 0, 1, 0, '5 seconds'),
- ('Race specific skill', 200, 6, 1, null, 5, 0, 0, 1, 0, null),
- ('Race specific skill', 0, 7, 1, null, 4, 0, 0, 1, 1, '5 seconds'),
- ('Skill #1', 100, 7, 1, 1, null, 0, 0, 1, 0, '2 seconds'),
- ('Skill #2', 200, 4, 1, 1, null, 0, 0, 1, 0, null),
- ('Skill #1', 200, 4, 1, 2, null, 0, 0, 1, 0, null),
- ('Skill #2', 200, 5, 1, 2, null, 0, 0, 1, 0, null),
- ('Skill #1', 200, 8, 1, 3, null, 0, 0, 1, 0, null),
- ('Skill #2', 200, 1, 1, 3, null, 0, 0, 1, 0, null),
- ('Skill #1', 200, 2, 1, 4, null, 0, 0, 1, 0, null),
- ('Skill #2', 200, 6, 1, 4, null, 0, 0, 1, 0, null),
- ('Skill #1', 200, 2, 1, 5, null, 0, 0, 1, 0, null),
- ('Skill #2', 200, 3, 1, 5, null, 0, 1, 0, 0, '10 seconds'),
- ('Skill #1', 200, 8, 1, 6, null, 0, 0, 1, 0, null),
- ('Skill #2', 200, 3, 1, 6, null, 0, 0, 1, 0, '5 seconds');
+ ('Race specific skill', 200, 3, 1, null, 6, '0', '1', '1', '0', null),
+ ('Race specific skill', 200, 1, 1, null, 1, '0', '0', '1', '0', null),
+ ('Race specific skill', 200, 4, 1, null, 3, '0', '0', '1', '0', null),
+ ('Race specific skill', 200, 2, 1, null, 2, '0', '0', '1', '0', '5 seconds'),
+ ('Race specific skill', 200, 6, 1, null, 5, '0', '0', '1', '0', null),
+ ('Race specific skill', 0, 7, 1, null, 4, '0', '0', '1', '1', '5 seconds'),
+ ('Skill #1', 100, 7, 1, 1, null, '0', '0', '1', '0', '2 seconds'),
+ ('Skill #2', 200, 4, 1, 1, null, '0', '0', '1', '0', null),
+ ('Skill #1', 200, 4, 1, 2, null, '0', '0', '1', '0', null),
+ ('Skill #2', 200, 5, 1, 2, null, '0', '0', '1', '0', null),
+ ('Skill #1', 200, 8, 1, 3, null, '0', '0', '1', '0', null),
+ ('Skill #2', 200, 1, 1, 3, null, '0', '0', '1', '0', null),
+ ('Skill #1', 200, 2, 1, 4, null, '0', '0', '1', '0', null),
+ ('Skill #2', 200, 6, 1, 4, null, '0', '0', '1', '0', null),
+ ('Skill #1', 200, 2, 1, 5, null, '0', '0', '1', '0', null),
+ ('Skill #2', 200, 3, 1, 5, null, '0', '1', '0', '0', '10 seconds'),
+ ('Skill #1', 200, 8, 1, 6, null, '0', '0', '1', '0', null),
+ ('Skill #2', 200, 3, 1, 6, null, '0', '0', '1', '0', '5 seconds');
  
  insert into mmo.level_types (name, gained_xp_multiplier)
  values
@@ -153,28 +153,66 @@ values
  values
  ('One-handed weapon', 1),
  ('Two-handed weapon', 1),
- ('Helmet', 1),
- ('Torso', 1),
- ('Gloves', 1),
- ('Pants', 1),
- ('Boots', 1),
- ('Chemistry', 0),
- ('Bag', 0);
+ ('Helmet', '1'),
+ ('Torso', '1'),
+ ('Gloves', '1'),
+ ('Pants', '1'),
+ ('Boots', '1'),
+ ('Chemistry', '0'),
+ ('Bag', '0'); 
  
- insert into mmo.characters (
-  player_id, server_id, fraction_id, race_id, class_id, name, strength, intelligence, speed,
-  agility, luck, max_health, cur_health, xp_to_next_level, cur_xp, is_online, created_dt
- )
- values
- (
-  1, server_id, fraction_id, race_id, class_id, name, strength, intelligence, speed,
-  agility, luck, max_health, cur_health, xp_to_next_level, cur_xp, is_online, created_dt
- ),
- 
- 
- 
- 
- 
- 
- 
- 
+insert into mmo.characters (player_id,
+                            server_id,
+                            fraction_id,
+                            race_id,
+                            class_id,
+                            name,
+                            strength,
+                            intelligence,
+                            speed,
+                            agility,
+                            luck,
+                            max_health,
+                            cur_health,
+                            xp_to_next_level,
+                            cur_xp,
+                            is_online,
+                            created_dt,
+                            level)
+values (1,
+        2,
+        2,
+        2,
+        2,
+        'mr. X',
+        (select strength from mmo.classes where id = 2),
+        (select intelligence from mmo.classes where id = 2),
+        (select speed from mmo.classes where id = 2),
+        (select agility from mmo.classes where id = 2),
+        (select luck from mmo.classes where id = 2),
+        (select health from mmo.classes where id = 2),
+        (select health from mmo.classes where id = 2),
+        level * 1000,
+        0,
+        '0',
+        now(),
+        1),
+
+       (2,
+        2,
+        1,
+        3,
+        1,
+        '47th agent',
+        (select strength from mmo.classes where id = 2),
+        (select intelligence from mmo.classes where id = 2),
+        (select speed from mmo.classes where id = 2),
+        (select agility from mmo.classes where id = 2),
+        (select luck from mmo.classes where id = 2),
+        (select health from mmo.classes where id = 2),
+        (select health from mmo.classes where id = 2),
+        1000,
+        0,
+        '0',
+        now(),
+        1);

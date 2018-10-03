@@ -139,7 +139,8 @@ create table mmo.characters(
   xp_to_next_level bigint not null,
   cur_xp bigint not null,
   is_online bit not null,
-  created_dt timestamp not null
+  created_dt timestamp not null,
+  level smallint not null
 );
 
 create table mmo.characters_equipment(

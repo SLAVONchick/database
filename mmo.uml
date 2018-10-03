@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>42841a9f-56de-4390-bcb1-5764fbe92230.SCHEMA:mmorpg_bang.mmo</OriginalElement>
+  <nodes>
+    <node x="1142.4902380952383" y="332.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.players</node>
+    <node x="2275.8288095238095" y="1184.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_groups_characters</node>
+    <node x="1891.4833333333333" y="366.5">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.skill_types</node>
+    <node x="198.84547619047635" y="57.5">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.level_types</node>
+    <node x="1760.1916666666668" y="714.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.skills</node>
+    <node x="331.34547619047635" y="783.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pve_groups</node>
+    <node x="1573.1916666666666" y="818.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.races_classes_fractions</node>
+    <node x="1354.4902380952383" y="286.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.classes</node>
+    <node x="2052.0666666666666" y="760.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.equipment</node>
+    <node x="0.0" y="1207.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.dungeons_bosses</node>
+    <node x="410.34547619047635" y="1161.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pve_groups_characters</node>
+    <node x="557.3454761904763" y="818.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.dungeons_roles</node>
+    <node x="2337.3288095238095" y="320.5">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_matches</node>
+    <node x="121.34547619047635" y="748.5">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.npcs</node>
+    <node x="755.4902380952383" y="355.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.fractions</node>
+    <node x="2338.3288095238095" y="806.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_groups</node>
+    <node x="1194.2402380952383" y="1195.5">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.characters_equipment</node>
+    <node x="352.2402380952383" y="355.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.dificulties</node>
+    <node x="2280.2464285714286" y="57.5">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_maps</node>
+    <node x="748.3454761904763" y="829.5">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.roles_classes</node>
+    <node x="1644.8704761904764" y="355.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.races</node>
+    <node x="1691.1578571428572" y="1195.5">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.classes_equipment</node>
+    <node x="1194.3704761904764" y="23.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.countries</node>
+    <node x="202.59547619047635" y="1207.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pve_groups_bosses</node>
+    <node x="569.4902380952383" y="366.5">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.roles</node>
+    <node x="2070.4833333333336" y="355.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.equipment_types</node>
+    <node x="999.6204761904763" y="69.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.server_types</node>
+    <node x="134.24023809523828" y="320.5">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.dungeons</node>
+    <node x="1141.9902380952383" y="645.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.characters</node>
+    <node x="941.4902380952383" y="332.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.servers</node>
+    <node x="2466.2464285714286" y="0.0">42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_modes</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pve_groups_bosses" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pve_groups">
+      <point x="43.25" y="-50.0" />
+      <point x="332.34547619047635" y="1141.0" />
+      <point x="374.09547619047635" y="1141.0" />
+      <point x="-42.75" y="85.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.races_classes_fractions" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.races">
+      <point x="55.66666666666674" y="-50.0" />
+      <point x="1712.3583333333336" y="625.0" />
+      <point x="1727.8704761904764" y="625.0" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.characters" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.players">
+      <point x="0.0" y="-223.0" />
+      <point x="0.0" y="73.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.characters" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.races">
+      <point x="77.20000000000005" y="-223.0" />
+      <point x="1315.6902380952383" y="625.0" />
+      <point x="1672.537142857143" y="625.0" />
+      <point x="-55.33333333333337" y="50.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.skills" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.skill_types">
+      <point x="63.66666666666663" y="-154.0" />
+      <point x="1919.3583333333336" y="625.0" />
+      <point x="1931.2333333333333" y="625.0" />
+      <point x="-39.75" y="39.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.races_classes_fractions" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.fractions">
+      <point x="-55.66666666666663" y="-50.0" />
+      <point x="1601.025" y="575.0" />
+      <point x="893.8235714285715" y="575.0" />
+      <point x="55.33333333333326" y="50.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.players" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.countries">
+      <point x="0.0" y="-73.5" />
+      <point x="1238.4902380952383" y="266.0" />
+      <point x="1330.8704761904764" y="266.0" />
+      <point x="45.5" y="85.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.skills" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.races">
+      <point x="0.0" y="-154.0" />
+      <point x="1855.6916666666668" y="545.0" />
+      <point x="1783.2038095238097" y="545.0" />
+      <point x="55.33333333333337" y="50.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.characters" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.fractions">
+      <point x="-77.20000000000005" y="-223.0" />
+      <point x="1161.2902380952382" y="595.0" />
+      <point x="838.4902380952383" y="595.0" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.dungeons_roles" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.roles">
+      <point x="42.75" y="-50.0" />
+      <point x="685.5954761904763" y="615.0" />
+      <point x="610.9902380952383" y="615.0" />
+      <point x="-41.5" y="39.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pve_groups_characters" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pve_groups">
+      <point x="-49.25" y="-96.0" />
+      <point x="42.75" y="85.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.equipment" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.level_types">
+      <point x="79.33333333333337" y="-108.0" />
+      <point x="2250.4" y="625.0" />
+      <point x="2260.9833333333336" y="625.0" />
+      <point x="2260.9833333333336" y="236.0" />
+      <point x="393.84547619047635" y="236.0" />
+      <point x="78.0" y="50.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.skills" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.classes">
+      <point x="-63.66666666666663" y="-154.0" />
+      <point x="1792.025" y="555.0" />
+      <point x="1514.6902380952383" y="555.0" />
+      <point x="71.20000000000005" y="119.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.characters_equipment" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.characters">
+      <point x="-44.25" y="-61.5" />
+      <point x="0.0" y="223.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.characters" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.servers">
+      <point x="-38.59999999999991" y="-223.0" />
+      <point x="1199.8902380952384" y="585.0" />
+      <point x="1031.9902380952383" y="585.0" />
+      <point x="0.0" y="73.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_matches" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_maps">
+      <point x="-42.0" y="-85.0" />
+      <point x="2379.3288095238095" y="266.0" />
+      <point x="2363.2464285714286" y="266.0" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.servers" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.server_types">
+      <point x="-45.25" y="-73.5" />
+      <point x="986.7402380952383" y="246.0" />
+      <point x="1079.1204761904764" y="246.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.servers" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.countries">
+      <point x="45.25" y="-73.5" />
+      <point x="1077.2402380952383" y="256.0" />
+      <point x="1239.8704761904764" y="256.0" />
+      <point x="-45.5" y="85.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_groups_characters" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.characters">
+      <point x="-48.5" y="-73.0" />
+      <point x="2324.3288095238095" y="1111.0" />
+      <point x="1302.8235714285715" y="1111.0" />
+      <point x="64.33333333333326" y="223.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_groups_characters" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_groups">
+      <point x="48.5" y="-73.0" />
+      <point x="0.0" y="62.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.npcs" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.level_types">
+      <point x="-41.5" y="-119.5" />
+      <point x="162.84547619047635" y="615.0" />
+      <point x="81.5" y="615.0" />
+      <point x="81.5" y="256.0" />
+      <point x="237.84547619047635" y="256.0" />
+      <point x="-78.0" y="50.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.equipment" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.equipment_types">
+      <point x="0.0" y="-108.0" />
+      <point x="2171.0666666666666" y="625.0" />
+      <point x="2160.4833333333336" y="625.0" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pve_groups" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.dificulties">
+      <point x="42.75" y="-85.0" />
+      <point x="459.59547619047635" y="615.0" />
+      <point x="435.2402380952383" y="615.0" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pve_groups_characters" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.characters">
+      <point x="49.25" y="-96.0" />
+      <point x="558.0954761904763" y="1141.0" />
+      <point x="1174.156904761905" y="1141.0" />
+      <point x="-64.33333333333326" y="223.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.npcs" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.fractions">
+      <point x="41.5" y="-119.5" />
+      <point x="245.84547619047635" y="625.0" />
+      <point x="783.156904761905" y="625.0" />
+      <point x="-55.33333333333326" y="50.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.roles_classes" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.classes">
+      <point x="36.25" y="-38.5" />
+      <point x="857.0954761904763" y="605.0" />
+      <point x="1372.2902380952382" y="605.0" />
+      <point x="-71.20000000000005" y="119.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.classes_equipment" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.equipment">
+      <point x="46.25" y="-61.5" />
+      <point x="1829.9078571428572" y="1141.0" />
+      <point x="2230.5666666666666" y="1141.0" />
+      <point x="59.5" y="108.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.classes_equipment" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.classes">
+      <point x="-46.25" y="-61.5" />
+      <point x="1737.4078571428572" y="1121.0" />
+      <point x="1535.8704761904764" y="1121.0" />
+      <point x="1535.8704761904764" y="615.0" />
+      <point x="1443.4902380952383" y="615.0" />
+      <point x="0.0" y="119.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.characters" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.classes">
+      <point x="38.59999999999991" y="-223.0" />
+      <point x="1277.0902380952382" y="615.0" />
+      <point x="1407.8902380952384" y="615.0" />
+      <point x="-35.59999999999991" y="119.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.characters_equipment" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.equipment">
+      <point x="44.25" y="-61.5" />
+      <point x="1326.9902380952383" y="1131.0" />
+      <point x="2111.5666666666666" y="1131.0" />
+      <point x="-59.5" y="108.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.races_classes_fractions" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.classes">
+      <point x="0.0" y="-50.0" />
+      <point x="1656.6916666666666" y="565.0" />
+      <point x="1479.0902380952382" y="565.0" />
+      <point x="35.59999999999991" y="119.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pve_groups_bosses" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.npcs">
+      <point x="-43.25" y="-50.0" />
+      <point x="41.5" y="119.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.dungeons" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.level_types">
+      <point x="0.0" y="-85.0" />
+      <point x="233.24023809523828" y="266.0" />
+      <point x="315.84547619047635" y="266.0" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.roles_classes" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.roles">
+      <point x="-36.25" y="-38.5" />
+      <point x="784.5954761904763" y="615.0" />
+      <point x="693.9902380952383" y="615.0" />
+      <point x="41.5" y="39.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.dungeons_roles" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.dungeons">
+      <point x="-42.75" y="-50.0" />
+      <point x="600.0954761904763" y="605.0" />
+      <point x="299.2402380952383" y="605.0" />
+      <point x="66.0" y="85.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.dungeons_bosses" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.dungeons">
+      <point x="-45.25" y="-50.0" />
+      <point x="45.25" y="625.0" />
+      <point x="167.24023809523828" y="625.0" />
+      <point x="-66.0" y="85.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.equipment" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.skill_types">
+      <point x="-79.33333333333331" y="-108.0" />
+      <point x="2091.7333333333336" y="625.0" />
+      <point x="2010.7333333333333" y="625.0" />
+      <point x="39.75" y="39.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pve_groups" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.dungeons">
+      <point x="-42.75" y="-85.0" />
+      <point x="374.09547619047635" y="615.0" />
+      <point x="233.24023809523828" y="615.0" />
+      <point x="0.0" y="85.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_groups" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_matches">
+      <point x="0.0" y="-62.0" />
+      <point x="0.0" y="85.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_matches" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_modes">
+      <point x="42.0" y="-85.0" />
+      <point x="2463.3288095238095" y="266.0" />
+      <point x="2600.7464285714286" y="266.0" />
+      <point x="0.0" y="108.0" />
+    </edge>
+    <edge source="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.dungeons_bosses" target="42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.npcs">
+      <point x="45.25" y="-50.0" />
+      <point x="135.75" y="1141.0" />
+      <point x="162.84547619047635" y="1141.0" />
+      <point x="-41.5" y="119.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="1368.0" y="256.0" />
+  <SelectedNodes>
+    <node>42841a9f-56de-4390-bcb1-5764fbe92230.TABLE:mmorpg_bang.mmo.pvp_modes</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+
