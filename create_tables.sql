@@ -172,7 +172,7 @@ create table mmo.npcs(
   level smallint not null,
   is_boss bit not null,
   level_type int not null references mmo.level_types(id),
-  health int not null,
+  health bigint not null,
   damage int not null
 );
 
@@ -191,7 +191,6 @@ create table mmo.dungeons_roles(
 create table mmo.pve_groups(
   id bigserial primary key,
   name varchar(128) not null,
-  last_killed_boss_order_num smallint,
   dungeon_id int not null references mmo.dungeons(id),
   start_dt timestamp not null,
   end_dt timestamp,
@@ -206,6 +205,12 @@ create table mmo.pve_groups_characters(
   damage_inflicted bigint not null,
   damage_gained bigint not null,
   bosses_killed smallint not null
+);
+
+create table mmo.pve_groups_bosses(
+  pve_group_id bigint not null references mmo.pve_groups(id),
+  boss_id int not null references mmo.npcs(id),
+  health bigint not null
 );
 
 create table mmo.pvp_maps(
@@ -248,5 +253,6 @@ create table mmo.pvp_groups_characters(
   kills smallint not null,
   deaths smallint not null
 );
+
 
 
