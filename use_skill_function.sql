@@ -16,19 +16,20 @@ begin
   end if;
     if (target_player_id is not null)
       then
-    with cte as (select ch.id as ch_id, s.duration, s.practical_stats, s.skill_type, (s.practical_stats - sum(e.practical_stats)) as total from mmo.characters ch
-                 join mmo.characters_equipment che on ch.id = che.character_id
-                 join mmo.equipment e on che.equipment_id = e.id
-                 join mmo.skill_types st on e.skill_type = st.id
-                 join mmo.skills s on st.id = s.skill_type
+    with cte as (select ch.id as ch_id, s.id as s_id, s.duration, s.practical_stats, s.skill_type, (s.practical_stats - sum(e.practical_stats)) as total from mmo.characters ch
+                 left join mmo.characters_equipment che on ch.id = che.character_id
+                 left join mmo.equipment e on che.equipment_id = e.id
+                 left join mmo.skill_types st on e.skill_type = st.id
+                 join mmo.classes c on ch.class_id = c.id
+                 left join mmo.skills s on s.class_id = c.id
                  where ch.id = using_player_id
                  and s.id = skill_id
-                 and e.equipment_type != 1 and e.equipment_type != 2
-                 and s.for_enemy = '1'
-                 and s.is_passive = '0'
-                 and s.self = case when target_player_id = using_player_id then '1'
-                                   else '0' end
-                 group by s.practical_stats, s.duration, ch.id, s.skill_type)
+                 and (e.equipment_type != 1 and e.equipment_type != 2 or e.equipment_type is null)
+                 and s.for_enemy = '1'::bit
+                 and s.is_passive = '0'::bit
+                 and s.self = case when 2 = 3 then '1'::bit
+                                   else '0'::bit end
+                 group by s.practical_stats, s.duration, ch.id, s.skill_type, s.id)
     update mmo.characters set cur_health =  case
                                                   when cte.skill_type != 3
                                                   then cur_health - cte.total * extract(epoch from cte.duration)
