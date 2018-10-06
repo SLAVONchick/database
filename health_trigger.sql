@@ -11,7 +11,7 @@ CREATE OR REPLACE FUNCTION damage_gained() RETURNS trigger AS $damage_gained$
               update pve_groups_characters set damage_gained = damage_gained +
                                                              ((select cur_health from characters where id = new.id) - new.cur_health);
             end if;
-            if new.cur_health = 0 then
+            if new.cur_health <= 0 then
               update pve_groups_characters set deaths = deaths + 1
               where character_id = new.id
               and end_dt is null;

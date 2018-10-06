@@ -1,4 +1,4 @@
-create or replace function use_skill(using_player_id bigint,
+create or replace function mmo.use_skill(using_player_id bigint,
                                      target_player_id bigint,
                                      target_boss_id int,
                                      skill_id int)
@@ -39,8 +39,9 @@ begin
         where id = target_player_id and id = cte.ch_id;
       return 0;
     else
-      update mmo.pve_groups_bosses as pgb set health = health - practical_stats
+      with cte as (select practical_stats, pgb.pve_group_id
       from mmo.pve_groups pg
+      join mmo.pve_groups_bosses pgb on pg.id = pgb.pve_group_id
       join mmo.pve_groups_characters pgc on pg.id = pgc.pve_group_id
       join mmo.characters c on pgc.character_id = c.id
       join mmo.skills s on c.class_id = s.class_id
@@ -51,10 +52,31 @@ begin
       and s.self = '0'
       and s.is_passive = '0'
       and s.id = skill_id
-      and s.skill_type != 3;
+      and s.skill_type != 3)
+      update mmo.pve_groups_bosses as pgb set health = health - practical_stats
+      from cte
+      where pgb.pve_group_id = cte.pve_group_id;
 
+      with cte as (select practical_stats, pgb.pve_group_id, c.id as ch_id
+      from mmo.pve_groups pg
+      join mmo.pve_groups_characters pgb on pg.id = pgb.pve_group_id
+      join mmo.characters c on character_id = c.id
+      join mmo.skills s on c.class_id = s.class_id
+      where pg.id = pgb.pve_group_id
+      and pgb.character_id = using_player_id
+      and s.for_enemy = '1'
+      and s.self = '0'
+      and s.is_passive = '0'
+      and s.id = skill_id
+      and s.skill_type != 3)
+      update mmo.pve_groups_characters as pgc set damage_inflicted = damage_inflicted + practical_stats
+      from cte
+      where pgc.pve_group_id = cte.pve_group_id
+      and pgc.character_id = cte.ch_id;
+
+      return 0;
     end if;
-
+return 1;
 end;
 $$
 language plpgsql
