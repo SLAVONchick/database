@@ -50,21 +50,53 @@ with e_sum as (select c.id, 'e' as pv_type, count(eg.id)
                                          order by db.oreder_num desc
                                          limit 1) last_boss on true
                where eg.id is not null
-                   and eg.end_dt is not null
-                   --or pg.is_winner is not null)
+                 and eg.end_dt is not null
                group by c.id),
      p_sum as (select c.id, 'p' as pv_type, count(pg.id)
                from mmo.characters c
                       left join mmo.pvp_groups_characters pgc on c.id = pgc.character_id
                       left join mmo.pvp_groups pg on pgc.pvp_group_id = pg.id
                where pg.id is not null
-               and pg.is_winner is not null
+                 and pg.is_winner is not null
                group by c.id),
      total_sum as (select e.id, sum(coalesce(e.count, 0)) + sum(coalesce(p.count, 0)) as sum
                    from e_sum e
                           left join p_sum p on e.id = p.id
                    group by e.id)
+
 select *
-from total_sum
+from total_sum s
 order by total_sum.sum desc
 limit 3;
+
+
+with e_sum as (select p.country_id, 'e' as pv_type, count(eg.id)
+               from mmo.characters c
+                      join mmo.players p on c.player_id = p.id
+                      left join mmo.pve_groups_characters egc on c.id = egc.character_id
+                      left join mmo.pve_groups eg on egc.pve_group_id = eg.id
+                      left join mmo.dungeons d on eg.dungeon_id = d.id
+                      left join lateral (select *
+                                         from mmo.pve_groups_bosses egb
+                                                join mmo.dungeons_bosses db on egb.boss_id = db.boss_id
+                                         where egb.pve_group_id = eg.id
+                                         order by db.oreder_num desc
+                                         limit 1) last_boss on true
+               where eg.id is not null
+               group by p.country_id),
+     p_sum as (select p.country_id, 'p' as pv_type, count(pg.id)
+               from mmo.characters c
+                      join mmo.players p on c.player_id = p.id
+                      left join mmo.pvp_groups_characters pgc on c.id = pgc.character_id
+                      left join mmo.pvp_groups pg on pgc.pvp_group_id = pg.id
+               where pg.id is not null
+               group by p.country_id),
+     total_sum as (select e.country_id, sum(coalesce(e.count, 0)) as sum_e, sum(coalesce(p.count, 0)) as sum_p
+                   from e_sum e
+                          left join p_sum p on e.country_id = p.country_id
+                   group by e.country_id)
+
+select c.name, s.sum_e, s.sum_p
+from total_sum s
+join mmo.countries c on s.country_id = c.id
+order by country_id
