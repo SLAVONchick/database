@@ -195,7 +195,8 @@ create table mmo.pve_groups(
   dungeon_id int not null references mmo.dungeons(id),
   start_dt timestamp not null,
   end_dt timestamp,
-  dificulty_id int not null references mmo.dificulties(id)
+  dificulty_id int not null references mmo.dificulties(id),
+  last_killed_boss_order_num smallint not null
 );
 
 create table mmo.pve_groups_characters(
