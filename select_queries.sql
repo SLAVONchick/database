@@ -1,4 +1,4 @@
-select sum(gc.kills) / sum(gc.deaths) as "k/d"
+select c.id, sum(gc.kills :: float) / sum(gc.deaths :: float) as "k/d"
 from mmo.characters c
        join mmo.pvp_groups_characters gc on c.id = gc.character_id
        join mmo.pvp_groups g on gc.pvp_group_id = g.id
@@ -17,10 +17,13 @@ with sum as (select ch.player_id,
                     left join mmo.pvp_groups_characters pgc on ch.id = pgc.character_id
                     left join mmo.pve_groups_characters egc on ch.id = egc.character_id
              group by ch.id, ch.player_id),
-     sum1 as (select s.player_id, sum(s.subtraction_of_sums) as sum from sum s group by s.player_id limit 3)
+     sum1 as (select s.player_id, sum(coalesce(s.subtraction_of_sums, 0)) as sum from sum s group by s.player_id)
 
-select *
+select s.player_id, s.sum
 from sum1 s
+       inner join (select max(ss.sum) from sum1 ss) maximum
+         on s.sum = maximum.max
+group by s.player_id, s.sum
 order by s.sum desc;
 
 
@@ -32,8 +35,9 @@ with avg as (select avg(lt.id) as average, ch.id
              where cheq.is_equipped = 1 :: bit
              group by ch.id)
 
-select *
+select a.id, lt.name
 from avg a
+       join mmo.level_types lt on lt.id = round(a.average)
 order by a.average desc
 limit 3;
 
@@ -66,7 +70,7 @@ with e_sum as (select c.id, 'e' as pv_type, count(eg.id)
 
 select *
 from total_sum s
-order by total_sum.sum desc
+order by s.sum desc
 limit 3;
 
 
@@ -98,5 +102,5 @@ with e_sum as (select p.country_id, 'e' as pv_type, count(eg.id)
 
 select c.name, s.sum_e, s.sum_p
 from total_sum s
-join mmo.countries c on s.country_id = c.id
+       join mmo.countries c on s.country_id = c.id
 order by country_id
