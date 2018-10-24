@@ -1,3 +1,7 @@
+create database mmorpg_bang;
+
+\c mmorpg_bang;
+
 create schema mmo;
 
 
